@@ -1,6 +1,7 @@
 package com.example.words.data
 
-import java.io.Serializable
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 
-
-data class DataWord(val word: String): Serializable
+@Parcelize
+data class DataWord(val word: String): Parcelable

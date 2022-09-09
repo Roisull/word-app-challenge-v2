@@ -40,6 +40,8 @@ class DetailWordFragment : Fragment() {
             Navigation.findNavController(view).navigate(R.id.action_detailWordFragment_to_wordFragment)
         }
 
+
+
         // memanggil recyclerView yang ada pada fragment Detai Word Fragmnet
         rvDetailWord = view.findViewById(R.id.rv_detail_word_container)
 

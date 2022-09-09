@@ -12,10 +12,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.words.R
 import com.example.words.adapter.WordAdapter
 import com.example.words.data.DataWord
+import com.example.words.databinding.FragmentWordBinding
 
-class WordFragment : Fragment() {
+class WordFragment : Fragment(R.layout.fragment_word) {
 
     lateinit var rvWords: RecyclerView
+
+    private var _binding: FragmentWordBinding? = null
+    private val binding get() = _binding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -56,18 +60,21 @@ class WordFragment : Fragment() {
         adapter.setOnItemClickListener(object : WordAdapter.onItemClickListener{
             override fun onItemClick(position: Int) {
 
-                val posisi = position
-                val text = "You Clicked on Item ${listWords[position].word}"
+                val posisi = listWords[position].word
+                val text = "you in $posisi"
                 val duration = Toast.LENGTH_SHORT
                 val aplicationContext = activity?.applicationContext
 
                 val toast = Toast.makeText(aplicationContext,text,duration)
                 toast.show()
 
+
                 Navigation.findNavController(view).navigate(R.id.action_wordFragment_to_detailWordFragment)
             }
 
         })
+
+        _binding = FragmentWordBinding.inflate(inflater,container,false )
 
         return view
     }
