@@ -65,8 +65,10 @@ class WordFragment : Fragment() {
                 val toast = Toast.makeText(aplicationContext,text,duration)
                 toast.show()
 
+                val bundle = Bundle()
+                bundle.putString("KEY_WORD", posisi)
 
-                Navigation.findNavController(view).navigate(R.id.action_wordFragment_to_detailWordFragment)
+                Navigation.findNavController(view).navigate(R.id.action_wordFragment_to_detailWordFragment,bundle)
             }
 
         })
