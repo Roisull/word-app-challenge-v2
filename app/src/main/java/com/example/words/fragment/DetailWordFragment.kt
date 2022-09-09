@@ -46,8 +46,6 @@ class DetailWordFragment : Fragment() {
         // memanggil recyclerView yang ada pada fragment Detai Word Fragmnet
         rvDetailWord = view.findViewById(R.id.rv_detail_word_container)
 
-
-
         return view
     }
 
