@@ -6,13 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.words.R
 import com.example.words.adapter.WordAdapter
-import com.example.words.data.DataDetailWord
 import com.example.words.data.DataWord
 
 class WordFragment : Fragment() {
@@ -57,7 +55,9 @@ class WordFragment : Fragment() {
         rvWords.adapter = adapter
         adapter.setOnItemClickListener(object : WordAdapter.onItemClickListener{
             override fun onItemClick(position: Int) {
-                val text = "You Clicked on Item $position"
+
+                val posisi = position
+                val text = "You Clicked on Item ${listWords[position].word}"
                 val duration = Toast.LENGTH_SHORT
                 val aplicationContext = activity?.applicationContext
 
