@@ -14,12 +14,9 @@ import com.example.words.adapter.WordAdapter
 import com.example.words.data.DataWord
 import com.example.words.databinding.FragmentWordBinding
 
-class WordFragment : Fragment(R.layout.fragment_word) {
+class WordFragment : Fragment() {
 
     lateinit var rvWords: RecyclerView
-
-    private var _binding: FragmentWordBinding? = null
-    private val binding get() = _binding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -73,8 +70,6 @@ class WordFragment : Fragment(R.layout.fragment_word) {
             }
 
         })
-
-        _binding = FragmentWordBinding.inflate(inflater,container,false )
 
         return view
     }
