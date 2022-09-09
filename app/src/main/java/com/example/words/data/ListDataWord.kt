@@ -69,4 +69,7 @@ class ListDataWord {
         DataDetailWord("Jurang"),
         DataDetailWord("Jihad")
     )
+    val blank = arrayListOf(
+        DataDetailWord("")
+    )
 }
