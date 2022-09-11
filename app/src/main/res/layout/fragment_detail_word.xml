@@ -27,7 +27,7 @@
             android:textSize="30sp"
             android:padding="20dp"
             android:fontFamily="@font/poppins_semibold_italic"
-            android:textColor="@color/green_primary" />
+            android:textColor="@color/pink_primary" />
     </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView

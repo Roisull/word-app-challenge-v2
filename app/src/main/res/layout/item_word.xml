@@ -19,7 +19,7 @@
             android:fontFamily="@font/poppins_semibold_italic"
             android:gravity="center_vertical|center"
             android:text="A"
-            android:textColor="@color/green_primary"
+            android:textColor="@color/pink_primary"
             android:textSize="20sp" />
     </RelativeLayout>
 
