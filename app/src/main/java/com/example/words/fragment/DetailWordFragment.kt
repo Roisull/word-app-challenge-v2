@@ -35,10 +35,10 @@ class DetailWordFragment : Fragment() {
         tvCategory = view.findViewById(R.id.tv_category_word)
         ivCategory = view.findViewById(R.id.iv_category_word)
         tvCategory.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_detailWordFragment_to_wordFragment)
+            // syntax for move to WordFragment
         }
         ivCategory.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_detailWordFragment_to_wordFragment)
+            // syntax for move to WordFragment
         }
 
         // get data bundle from WordFragment

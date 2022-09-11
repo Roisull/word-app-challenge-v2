@@ -68,7 +68,7 @@ class WordFragment : Fragment() {
                 val bundle = Bundle()
                 bundle.putString("KEY_WORD", posisi)
 
-                Navigation.findNavController(view).navigate(R.id.action_wordFragment_to_detailWordFragment,bundle)
+                // syntax for move to Detail Word Fragment
             }
 
         })
