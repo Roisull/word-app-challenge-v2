@@ -10,14 +10,30 @@ import com.example.words.data.DataDetailWord
 
 class DetailWordAdapter(private val listDetailWord: ArrayList<DataDetailWord>):RecyclerView.Adapter<DetailWordAdapter.ViewHolder>() {
 
-    class ViewHolder(itemDetailWordView: View):RecyclerView.ViewHolder(itemDetailWordView){
+    private lateinit var mListener: onItemClickListener
+
+    interface onItemClickListener{
+        fun onItemClick(position: Int)
+    }
+
+    fun setOnItemClickListener(listener: onItemClickListener){
+        mListener = listener
+    }
+
+    class ViewHolder(itemDetailWordView: View, listener: onItemClickListener):RecyclerView.ViewHolder(itemDetailWordView){
         val detWord = itemDetailWordView.findViewById<TextView>(R.id.tv_detail_word)
+
+        init {
+            itemDetailWordView.setOnClickListener{
+                listener.onItemClick(adapterPosition)
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_detail_word,parent,false)
 
-        return ViewHolder(view)
+        return ViewHolder(view, mListener)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

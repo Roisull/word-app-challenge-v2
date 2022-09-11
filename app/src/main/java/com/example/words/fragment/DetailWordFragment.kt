@@ -1,5 +1,7 @@
 package com.example.words.fragment
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,16 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.words.R
 import com.example.words.adapter.DetailWordAdapter
-import com.example.words.data.DataDetailWord
-import com.example.words.data.DataWord
 import com.example.words.data.ListDataWord
-import java.io.Serializable
 
 class DetailWordFragment : Fragment() {
 
@@ -51,36 +50,40 @@ class DetailWordFragment : Fragment() {
 
         var adapter: DetailWordAdapter? = null
 
+        var detailWordAdapter: DetailWordAdapter? = null
+
+        DetailWordAdapter(listDataWord.listDataWordA)
+
         // percabanga untuk menentukan data yang bakal dimunculkan
         if (data == "A"){
-            val detailWordAdapter = DetailWordAdapter(listDataWord.listDataWordA)
+            detailWordAdapter = DetailWordAdapter(listDataWord.listDataWordA)
             adapter = detailWordAdapter
         }else if (data == "B"){
-            val detailWordAdapter = DetailWordAdapter(listDataWord.listDataWordB)
+            detailWordAdapter = DetailWordAdapter(listDataWord.listDataWordB)
             adapter = detailWordAdapter
         }else if (data == "C"){
-            val detailWordAdapter = DetailWordAdapter(listDataWord.listDataWordC)
+            detailWordAdapter = DetailWordAdapter(listDataWord.listDataWordC)
             adapter = detailWordAdapter
         }else if (data == "D"){
-            val detailWordAdapter = DetailWordAdapter(listDataWord.listDataWordD)
+            detailWordAdapter = DetailWordAdapter(listDataWord.listDataWordD)
             adapter = detailWordAdapter
         }else if (data == "E"){
-            val detailWordAdapter = DetailWordAdapter(listDataWord.listDataWordE)
+            detailWordAdapter = DetailWordAdapter(listDataWord.listDataWordE)
             adapter = detailWordAdapter
         }else if (data == "F"){
-            val detailWordAdapter = DetailWordAdapter(listDataWord.listDataWordF)
+            detailWordAdapter = DetailWordAdapter(listDataWord.listDataWordF)
             adapter = detailWordAdapter
         }else if (data == "G"){
-            val detailWordAdapter = DetailWordAdapter(listDataWord.listDataWordG)
+            detailWordAdapter = DetailWordAdapter(listDataWord.listDataWordG)
             adapter = detailWordAdapter
         }else if (data == "H"){
-            val detailWordAdapter = DetailWordAdapter(listDataWord.listDataWordH)
+            detailWordAdapter = DetailWordAdapter(listDataWord.listDataWordH)
             adapter = detailWordAdapter
         }else if (data == "I"){
-            val detailWordAdapter = DetailWordAdapter(listDataWord.listDataWordI)
+            detailWordAdapter = DetailWordAdapter(listDataWord.listDataWordI)
             adapter = detailWordAdapter
         }else if (data == "J"){
-            val detailWordAdapter = DetailWordAdapter(listDataWord.listDataWordJ)
+            detailWordAdapter = DetailWordAdapter(listDataWord.listDataWordJ)
             adapter = detailWordAdapter
         }
 
@@ -96,6 +99,21 @@ class DetailWordFragment : Fragment() {
 
         // set adapter into recyclerView
         rvDetailWord.adapter = adapter
+
+        adapter?.setOnItemClickListener(object : DetailWordAdapter.onItemClickListener{
+            override fun onItemClick(position: Int) {
+                val posisi = detailWordAdapter
+                val text = "you clicked $posisi"
+                val duration = Toast.LENGTH_SHORT
+                val aplicationContext = activity?.applicationContext
+
+                val toast = Toast.makeText(aplicationContext,text,duration)
+                toast.show()
+
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/search?q=$posisi"))
+                startActivity(intent)
+            }
+        })
 
         return view
     }
